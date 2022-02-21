@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Entity
+public class Shop : MonoBehaviour
 {
     // Start is called before the first frame update
-    private new void Start()
+    void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
-    private new void Update()
+    void Update()
     {
-        base.Update();
+        
     }
 }

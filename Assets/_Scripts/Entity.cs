@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    // Stats
     private float currentHealth;
     private float maxHealth;
     private float healthRegen;
     private float maxMana;
     private float currentMana;
     private float manaRegen;
+    private float attackDamage;
     private float baseAttackSpeed;
     private float attackSpeed;
+    private float armorCoefficient = 20;
+    private float magicResistCoefficient = 100;
     private float attackSpeedCap = 2.50F;
     private float armor;
     private float magicResist;
@@ -26,39 +30,51 @@ public class Entity : MonoBehaviour
     private float evasion;
     private float missChance;
 
-    // Start is called before the first frame update
-    void Start()
+    private float armorPercentPenetration;
+    private float armorFlatPenetration;
+
+
+    protected void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         
     }
 
-    void Spawn()
+    protected void Spawn()
     {
 
     }
 
-    void Move()
+    protected void Move(Vector2 destination)
     {
 
     }
 
-    void TakeDamage()
+    public void TakeDamage(DamageTypes damageType, float damageAmount, float flatPenetration, float percentagePenetration, float blockPenetration)
     {
-
+        switch (damageType)
+        {
+            case DamageTypes.PhysicalDamage:
+                currentHealth -= damageAmount;
+                break;
+            case DamageTypes.MagicDamage:
+                currentHealth -= damageAmount;
+                break;
+            default:
+                break;
+        }
     }
 
-    void Attack()
+    protected void Attack(Entity enemy)
     {
-
+        enemy.TakeDamage(DamageTypes.PhysicalDamage, attackDamage, armorFlatPenetration, armorPercentPenetration, 0);
     }
 
-    void Die()
+    protected void Die()
     {
 
     }
