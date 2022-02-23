@@ -29,7 +29,8 @@ public class Entity : MonoBehaviour
     private float physicalPower;
     private float evasion;
     private float missChance;
-
+    private bool isMelee;
+    private float attackRange;
     private float armorPercentPenetration;
     private float armorFlatPenetration;
 
@@ -64,6 +65,9 @@ public class Entity : MonoBehaviour
             case DamageTypes.MagicDamage:
                 currentHealth -= damageAmount;
                 break;
+            case DamageTypes.ElementalDamage:
+                currentHealth -= damageAmount;
+                break;
             default:
                 break;
         }
@@ -76,6 +80,6 @@ public class Entity : MonoBehaviour
 
     protected void Die()
     {
-
+        
     }
 }

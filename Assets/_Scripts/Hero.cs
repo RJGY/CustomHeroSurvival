@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Hero : Entity
 {
+    // Objects
+    private Player player;
+
+    // Stats
+    private int lives;
+    private float luck;
+
     // Start is called before the first frame update
     private new void Start()
     {
