@@ -6,5 +6,6 @@ public enum DamageTypes
 {
     PhysicalDamage,
     MagicDamage,
+    PureDamage,
     ElementalDamage,
 }

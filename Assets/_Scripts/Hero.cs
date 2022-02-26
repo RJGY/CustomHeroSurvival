@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Hero : Entity
 {
     // Objects
     private Player player;
+    private NavMeshAgent agent;
 
     // Stats
     private int lives;
@@ -21,5 +23,10 @@ public class Hero : Entity
     private new void Update()
     {
         base.Update();
+    }
+
+    void GetComponentsOnStart()
+    {
+        agent = GetComponent<NavMeshAgent>();
     }
 }
