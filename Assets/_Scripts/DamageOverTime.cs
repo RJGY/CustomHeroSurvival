@@ -7,12 +7,22 @@ public class DamageOverTime : MonoBehaviour
 {
     public Entity enemy { get; private set; }
     public string id { get; private set; }
-    private Entity damageDealer;
-    private float damage;
-    private float period;
-    private int amount;
-    private Timer timer;
-    private int limit;
+    public Entity damageDealer { get; private set; }
+    public float damage { get; private set; }
+    public float period { get; private set; }
+    public int remainingStacks { get; private set; }
+    public Timer timer { get; private set; }
+    public int limit { get; private set; }
+
+    public DamageOverTime(Entity enemy, string id, Entity damageDealer, float damage, float period, int remainingStacks, int limit)
+    {
+        this.enemy = enemy;
+        this.id = id;
+        this.damageDealer = damageDealer;
+        this.period = period;
+        this.remainingStacks = remainingStacks;
+        this.limit = limit;
+    }
 
     void Start()
     {

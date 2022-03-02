@@ -25,7 +25,6 @@ public class Entity : MonoBehaviour
     protected int level;
     protected float xp;
     protected float moveSpeed;
-    protected float luck;
     protected float physicalPower;
     protected float evasion;
     protected float missChance;
@@ -38,6 +37,7 @@ public class Entity : MonoBehaviour
     protected float blockPercentPenetration;
     protected float blockFlatPenetration;
     protected float damageReduction;
+    protected Ability[] abilities;
 
     protected void Start()
     {
