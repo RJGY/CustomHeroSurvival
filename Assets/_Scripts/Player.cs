@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
-    #region Objects
-    // Objects
-    
-    #endregion
-
-
     #region Variables
     // Stats
     private int gold;
@@ -17,7 +11,7 @@ public class Player : MonoBehaviour
     private int income;
     private int creepLevel;
     private Hero hero;
-
+    private PlayerMouse mouse;
     #endregion
 
     #region MonoBehaviour
@@ -42,9 +36,9 @@ public class Player : MonoBehaviour
         
     }
 
-    void Move()
+    void Move(Vector3 position)
     {
-
+        hero.Move(position);
     }
 
     #endregion

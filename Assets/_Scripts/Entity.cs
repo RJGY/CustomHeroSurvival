@@ -55,7 +55,7 @@ public class Entity : MonoBehaviour
 
     }
 
-    protected void Move(Vector2 destination)
+    public void Move(Vector2 destination)
     {
 
     }

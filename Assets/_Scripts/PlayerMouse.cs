@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class PlayerMouse : MonoBehaviour
 {
+    #region Events
+    public delegate void Position(Vector3 position);
+    public event Position PlayerMoved;
+    #endregion
+
+    #region Variables
+    // Variables
+    private Player player;
+    [SerializeField] private LayerMask groundLayer;
+
+    #endregion
+
+
+    #region Monobehaviour
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +30,20 @@ public class PlayerMouse : MonoBehaviour
            
     }
 
+    #endregion
+
+    #region Functions
+
     void MoveToPoint()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ))
         {
             PlayerMoved?.Invoke(hit.point);
         }
     }
+
+    #endregion
 }
