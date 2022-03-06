@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Entity : MonoBehaviour
 {
+    // Objects
+    protected NavMeshAgent agent;
+
     // Stats
     protected float currentHealth;
     protected float maxHealth;
@@ -38,6 +42,7 @@ public class Entity : MonoBehaviour
     protected float blockFlatPenetration;
     protected float damageReduction;
     protected Ability[] abilities;
+    protected bool canAttack;
 
     protected void Start()
     {
@@ -51,11 +56,6 @@ public class Entity : MonoBehaviour
     }
 
     protected void Spawn()
-    {
-
-    }
-
-    public void Move(Vector2 destination)
     {
 
     }
@@ -131,11 +131,29 @@ public class Entity : MonoBehaviour
 
     protected void BasicAttack(Entity enemy)
     {
-        DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+        if (canAttack)
+        {
+            DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+        }
+    }
+
+    private void GetComponentsOnStart()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    protected void Move(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+    }
+
+    protected void AttackCooldown()
+    {
+        
     }
 
     protected void Die()
     {
-        
+        Destroy(gameObject);
     }
 }

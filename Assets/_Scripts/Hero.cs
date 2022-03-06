@@ -5,17 +5,26 @@ using UnityEngine.AI;
 
 public class Hero : Entity
 {
+    #region Objects
     // Objects
     private Player player;
-    private NavMeshAgent agent;
+
+    #endregion
+
+    #region Variables
 
     // Stats
     private int lives;
     private float luck;
 
+    #endregion
+
+
+    #region Monobehaviour
     // Start is called before the first frame update
     private new void Start()
     {
+        SubscribeEvents();
         base.Start();
     }
 
@@ -25,8 +34,24 @@ public class Hero : Entity
         base.Update();
     }
 
-    void GetComponentsOnStart()
+    private void OnDestroy()
     {
-        agent = GetComponent<NavMeshAgent>();
+        UnsubscribeEvents();
     }
+
+    #endregion
+
+    #region Functions
+
+    private void SubscribeEvents()
+    {
+        player.mouse.PlayerMoved += Move;
+    }
+
+    private void UnsubscribeEvents()
+    {
+        player.mouse.PlayerMoved -= Move;
+    }
+
+    #endregion
 }

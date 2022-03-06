@@ -39,7 +39,7 @@ public class PlayerMouse : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
         {
             PlayerMoved?.Invoke(hit.point);
         }

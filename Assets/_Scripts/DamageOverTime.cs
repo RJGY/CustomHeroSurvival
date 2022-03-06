@@ -28,14 +28,14 @@ public class DamageOverTime : MonoBehaviour
 
     void Start()
     {
-        timer = new Timer(0);
+        damageDealer.DealDamage(damageType, damage, enemy);
+        timer = new Timer(period);
     }
 
     void Update()
     {
         if (timer.Update(Time.deltaTime))
         {
-            damageDealer.DealDamage(damageType, damage, enemy);
             remainingStacks--;
             if (remainingStacks == 0)
             {

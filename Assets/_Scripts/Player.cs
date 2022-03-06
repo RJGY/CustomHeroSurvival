@@ -4,14 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    #region Events
+
+    #endregion 
+
     #region Variables
     // Stats
-    private int gold;
-    private int glory;
-    private int income;
-    private int creepLevel;
-    private Hero hero;
-    private PlayerMouse mouse;
+    public int gold { get; private set; }
+    public int glory { get; private set; }
+    public int income { get; private set; }
+    public int creepLevel { get; private set; }
+    public Hero hero { get; private set; }
+    public PlayerMouse mouse { get; private set; }
     #endregion
 
     #region MonoBehaviour
@@ -31,14 +35,9 @@ public class Player : MonoBehaviour
 
     #region Functions
 
-    void GetComponentsOnStart()
+    private void GetComponentsOnStart()
     {
         
-    }
-
-    void Move(Vector3 position)
-    {
-        hero.Move(position);
     }
 
     #endregion
