@@ -5,8 +5,14 @@ using UnityEngine.AI;
 
 public class Entity : MonoBehaviour
 {
+    #region Objects
     // Objects
     protected NavMeshAgent agent;
+    protected Entity currentEnemy;
+    protected Collider body;
+    #endregion
+
+    #region Variables
 
     // Stats
     protected float currentHealth;
@@ -44,9 +50,13 @@ public class Entity : MonoBehaviour
     protected Ability[] abilities;
     protected bool canAttack;
 
+    #endregion
+
+    #region Monobehaviour
+
     protected void Start()
     {
-        
+        GetComponentsOnStart();
     }
 
     protected void Update()
@@ -55,11 +65,9 @@ public class Entity : MonoBehaviour
         
     }
 
-    protected void Spawn()
-    {
+    #endregion
 
-    }
-
+    #region Functions
     protected void Attack(Entity enemy)
     {
 
@@ -134,6 +142,7 @@ public class Entity : MonoBehaviour
         if (canAttack)
         {
             DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+            AttackCooldown();
         }
     }
 
@@ -149,11 +158,13 @@ public class Entity : MonoBehaviour
 
     protected void AttackCooldown()
     {
-        
+        canAttack = false;
     }
 
     protected void Die()
     {
         Destroy(gameObject);
     }
+
+    #endregion
 }
