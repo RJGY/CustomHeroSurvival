@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Btkalman.Util;
 
 public class Entity : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Entity : MonoBehaviour
     protected NavMeshAgent agent;
     protected Entity currentEnemy;
     protected Collider body;
+    protected Timer attackCooldown;
     #endregion
 
     #region Variables
@@ -49,7 +51,7 @@ public class Entity : MonoBehaviour
     protected float damageReduction;
     protected Ability[] abilities;
     protected bool canAttack;
-
+    protected bool isVisible;
     #endregion
 
     #region Monobehaviour
@@ -68,17 +70,21 @@ public class Entity : MonoBehaviour
     #endregion
 
     #region Functions
-    protected void Attack(Entity enemy)
-    {
-
-    }
-
     protected void RegenerateHealth()
     {
+        if (currentHealth >= maxHealth)
+            return;
+
         currentHealth += healthRegen * Time.deltaTime;
         if (currentHealth > maxHealth)
-        {
             currentHealth = maxHealth;
+    }
+
+    protected void CheckCurrentEnemy()
+    {
+        if (!currentEnemy.isVisible)
+        {
+            currentEnemy = null;
         }
     }
 
@@ -137,12 +143,30 @@ public class Entity : MonoBehaviour
         }
     }
 
-    protected void BasicAttack(Entity enemy)
+    protected void Attack(Entity enemy)
     {
+        currentEnemy = enemy;
+
+        if (Vector3.Distance(transform.position, enemy.transform.position) > attackRange)
+        {
+            Move(enemy.transform.position);
+            return;
+        }
+
         if (canAttack)
         {
-            DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
-            AttackCooldown();
+            if (isMelee)
+            {
+                // Play Attack Animation
+                DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+                ToggleAttack();
+            }
+            else
+            {
+                // Play Attack Animation
+                DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+                ToggleAttack();
+            }
         }
     }
 
@@ -156,9 +180,18 @@ public class Entity : MonoBehaviour
         agent.SetDestination(destination);
     }
 
-    protected void AttackCooldown()
+    protected void AttackCooldown(float deltaTime)
+    {
+        if (!canAttack && attackCooldown.Update(deltaTime))
+        {
+            canAttack = true;
+        }
+    }
+
+    protected void ToggleAttack()
     {
         canAttack = false;
+        attackCooldown.Start();
     }
 
     protected void Die()
