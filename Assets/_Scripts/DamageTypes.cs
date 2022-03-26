@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageTypes
+namespace CHS
 {
-    PhysicalDamage,
-    MagicDamage,
-    PureDamage,
-    ElementalDamage,
+
+
+    public enum DamageTypes
+    {
+        PhysicalDamage,
+        MagicDamage,
+        PureDamage,
+        ElementalDamage,
+    }
 }

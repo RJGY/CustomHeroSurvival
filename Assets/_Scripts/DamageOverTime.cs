@@ -3,45 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using Btkalman.Util;
 
-public class DamageOverTime : MonoBehaviour
+namespace CHS
 {
-    public Entity enemy { get; private set; }
-    public string id { get; private set; }
-    public DamageTypes damageType { get; private set; }
-    public Entity damageDealer { get; private set; }
-    public float damage { get; private set; }
-    public float period { get; private set; }
-    public int remainingStacks { get; private set; }
-    public Timer timer { get; private set; }
-    public int limit { get; private set; }
 
-    public DamageOverTime(Entity enemy, string id, DamageTypes damageType, Entity damageDealer, float damage, float period, int remainingStacks, int limit)
+    public class DamageOverTime : MonoBehaviour
     {
-        this.enemy = enemy;
-        this.id = id;
-        this.damageType = damageType;
-        this.damageDealer = damageDealer;
-        this.period = period;
-        this.remainingStacks = remainingStacks;
-        this.limit = limit;
-    }
+        public Entity enemy { get; private set; }
+        public string id { get; private set; }
+        public DamageTypes damageType { get; private set; }
+        public Entity damageDealer { get; private set; }
+        public float damage { get; private set; }
+        public float period { get; private set; }
+        public int remainingStacks { get; private set; }
+        public Timer timer { get; private set; }
+        public int limit { get; private set; }
 
-    void Start()
-    {
-        damageDealer.DealDamage(damageType, damage, enemy);
-        timer = new Timer(period);
-    }
-
-    void Update()
-    {
-        if (timer.Update(Time.deltaTime))
+        public DamageOverTime(Entity enemy, string id, DamageTypes damageType, Entity damageDealer, float damage, float period, int remainingStacks, int limit)
         {
-            remainingStacks--;
-            if (remainingStacks == 0)
+            this.enemy = enemy;
+            this.id = id;
+            this.damageType = damageType;
+            this.damageDealer = damageDealer;
+            this.period = period;
+            this.remainingStacks = remainingStacks;
+            this.limit = limit;
+        }
+
+        void Start()
+        {
+            damageDealer.DealDamage(damageType, damage, enemy);
+            timer = new Timer(period);
+        }
+
+        void Update()
+        {
+            if (timer.Update(Time.deltaTime))
             {
-                Destroy(gameObject);
+                remainingStacks--;
+                if (remainingStacks == 0)
+                {
+                    Destroy(gameObject);
+                }
+                timer.Start();
             }
-            timer.Start();
         }
     }
 }

@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Absolutes
+namespace CHS
 {
-    Fire,
-    Cold,
-    Light,
-    Dark,
-    Arcane,
-    Poison,
-    Blood,
-    Water,
-    Wild,
-    Wind
+
+    public enum Absolutes
+    {
+        Fire,
+        Cold,
+        Light,
+        Dark,
+        Arcane,
+        Poison,
+        Blood,
+        Water,
+        Wild,
+        Wind
+    }
 }

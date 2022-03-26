@@ -3,55 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Hero : Entity
+namespace CHS
 {
-    #region Objects
-    // Objects
-    private Player player;
 
-    #endregion
-
-    #region Variables
-
-    // Stats
-    private int lives;
-    private float luck;
-
-    #endregion
-
-
-    #region Monobehaviour
-    // Start is called before the first frame update
-    private new void Start()
+    public class Hero : Entity
     {
-        SubscribeEvents();
-        base.Start();
+        #region Objects
+        // Objects
+        private Player player;
+
+        #endregion
+
+        #region Variables
+
+        // Stats
+        private int lives;
+        private float luck;
+
+        #endregion
+
+
+        #region Monobehaviour
+        // Start is called before the first frame update
+        private new void Start()
+        {
+            SubscribeEvents();
+            base.Start();
+        }
+
+        // Update is called once per frame
+        private new void Update()
+        {
+            base.Update();
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeEvents();
+        }
+
+        #endregion
+
+        #region Functions
+
+        private void SubscribeEvents()
+        {
+            player.mouse.PlayerMoved += Move;
+        }
+
+        private void UnsubscribeEvents()
+        {
+            player.mouse.PlayerMoved -= Move;
+        }
+
+        #endregion
     }
-
-    // Update is called once per frame
-    private new void Update()
-    {
-        base.Update();
-    }
-
-    private void OnDestroy()
-    {
-        UnsubscribeEvents();
-    }
-
-    #endregion
-
-    #region Functions
-
-    private void SubscribeEvents()
-    {
-        player.mouse.PlayerMoved += Move;
-    }
-
-    private void UnsubscribeEvents()
-    {
-        player.mouse.PlayerMoved -= Move;
-    }
-
-    #endregion
 }
