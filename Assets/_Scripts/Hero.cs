@@ -19,6 +19,14 @@ namespace CHS
         // Stats
         private int lives;
         private float luck;
+        private float pvpBonus;
+        private float healthPerLevel;
+        private float manaPerLevel;
+        private float damagePerLevel;
+        private float armourPerLevel;
+        private float magicResistPerLevel;
+        private Ability heroAbility;
+        private float xp;
 
         #endregion
 

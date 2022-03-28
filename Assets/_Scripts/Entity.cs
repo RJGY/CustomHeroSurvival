@@ -11,50 +11,50 @@ namespace CHS
     {
         #region Objects
         // Objects
-        protected NavMeshAgent agent;
-        protected Entity currentEnemy;
-        protected Collider body;
-        protected Timer attackCooldown;
+        public NavMeshAgent agent { get; protected set; }
+        public Entity currentEnemy { get; protected set; }
+        public Collider body { get; protected set; }
+        public Timer attackCooldown { get; protected set; }
         #endregion
 
         #region Variables
 
         // Stats
-        protected float currentHealth;
-        protected float maxHealth;
-        protected float healthRegen;
-        protected float maxMana;
-        protected float currentMana;
-        protected float manaRegen;
-        protected float attackDamage;
-        protected float baseAttackSpeed;
-        protected float attackSpeed;
-        protected float armorCoefficient = 20;
-        protected float magicResistCoefficient = 100;
-        protected float attackSpeedCap = 2.50F;
-        protected float armor;
-        protected float magicResist;
-        protected float magicPower;
-        protected float block;
-        protected float pvpBonus;
-        protected int level;
-        protected float xp;
-        protected float moveSpeed;
-        protected float physicalPower;
-        protected float evasion;
-        protected float missChance;
-        protected bool isMelee;
-        protected float attackRange;
-        protected float armorPercentPenetration;
-        protected float armorFlatPenetration;
-        protected float magicPercentPenetration;
-        protected float magicFlatPenetration;
-        protected float blockPercentPenetration;
-        protected float blockFlatPenetration;
-        protected float damageReduction;
-        protected Ability[] abilities;
-        protected bool canAttack;
-        protected bool isVisible;
+        public float currentHealth { get; protected set; }
+        public float maxHealth { get; protected set; }
+        public float healthRegen { get; protected set; }
+        public float maxMana { get; protected set; }
+        public float currentMana { get; protected set; }
+        public float manaRegen { get; protected set; }
+        public float attackDamage { get; protected set; }
+        public float baseAttackSpeed { get; protected set; }
+        public float attackSpeed { get; protected set; }
+        // TODO: Move these to a library somwhere
+        public float armorCoefficient = 20;
+        public float magicResistCoefficient = 100;
+        public float attackSpeedCap = 2.50F;
+        public float armor { get; protected set; }
+        public float magicResist { get; protected set; }
+        public float magicPower { get; protected set; }
+        public float block { get; protected set; }
+        public int level { get; protected set; }
+        
+        public float moveSpeed { get; protected set; }
+        public float physicalPower { get; protected set; }
+        public float evasion { get; protected set; }
+        public float missChance { get; protected set; }
+        public bool isMelee { get; protected set; }
+        public float attackRange { get; protected set; }
+        public float armorPercentPenetration { get; protected set; }
+        public float armorFlatPenetration { get; protected set; }
+        public float magicPercentPenetration { get; protected set; }
+        public float magicFlatPenetration { get; protected set; }
+        public float blockPercentPenetration { get; protected set; }
+        public float blockFlatPenetration { get; protected set; }
+        public float damageReduction { get; protected set; }
+        public Ability[] abilities { get; protected set; }
+        public bool canAttack { get; protected set; }
+        public bool isVisible { get; protected set; }
         #endregion
 
         #region Monobehaviour
@@ -200,6 +200,11 @@ namespace CHS
         protected void Die()
         {
             Destroy(gameObject);
+        }
+
+        protected void SetStats()
+        {
+
         }
 
         #endregion
