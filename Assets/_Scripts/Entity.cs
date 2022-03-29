@@ -30,15 +30,14 @@ namespace CHS
         public float baseAttackSpeed { get; protected set; }
         public float attackSpeed { get; protected set; }
         // TODO: Move these to a library somwhere
-        public float armorCoefficient = 20;
-        public float magicResistCoefficient = 100;
-        public float attackSpeedCap = 2.50F;
+        private float armorCoefficient = 100;
+        private float magicResistCoefficient = 100;
+        private float attackSpeedCap = 2.50f;
         public float armor { get; protected set; }
         public float magicResist { get; protected set; }
         public float magicPower { get; protected set; }
         public float block { get; protected set; }
         public int level { get; protected set; }
-        
         public float moveSpeed { get; protected set; }
         public float physicalPower { get; protected set; }
         public float evasion { get; protected set; }
@@ -202,9 +201,20 @@ namespace CHS
             Destroy(gameObject);
         }
 
-        protected void SetStats()
+        public void SetStats(BaseEntityScriptableObject baseEntity)
         {
-
+            armor = baseEntity.armor;
+            attackDamage = baseEntity.attackDamage;
+            attackRange = baseEntity.attackRange;
+            currentHealth = baseEntity.currentHealth;
+            maxHealth = baseEntity.maxHealth;
+            healthRegen = baseEntity.healthRegen;
+            maxMana = baseEntity.maxMana;
+            attackSpeed = baseEntity.attackSpeed;
+            baseAttackSpeed = baseEntity.baseAttackSpeed;
+            magicResist = baseEntity.magicResist;
+            moveSpeed = baseEntity.moveSpeed;
+            isMelee = baseEntity.isMelee;
         }
 
         #endregion

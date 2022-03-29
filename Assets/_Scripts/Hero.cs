@@ -21,10 +21,14 @@ namespace CHS
         private float luck;
         private float pvpBonus;
         private float healthPerLevel;
+        private float healthRegenPerLevel;
         private float manaPerLevel;
+        private float manaRegenPerLevel;
         private float damagePerLevel;
         private float armourPerLevel;
         private float magicResistPerLevel;
+        private float attackSpeedPerLevel;
+        private float magicPowerPerLevel;
         private Ability heroAbility;
         private float xp;
 
