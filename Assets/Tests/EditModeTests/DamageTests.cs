@@ -8,7 +8,6 @@ namespace Tests
 {
     public class DamageTest
     {
-        // A Test behaves as an ordinary method
         [Test]
         public void Set_AttackDamage_ToEquivalentStats()
         {
@@ -72,6 +71,41 @@ namespace Tests
             entity.SetStats(stats);
 
             Assert.IsTrue(entity.isMelee);
+        }
+        
+        [Test]
+        public void TakeDamage_ShouldTake_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Entity entity = gameObject.AddComponent<Entity>();
+            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 100.0f;
+            entity.SetStats(stats);
+            Assert.AreEqual(100.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+
+            entity.TakeDamage(DamageTypes.PhysicalDamage, entity.attackDamage, 0, 0, 0, 0);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
+
+        // This is failing i dont know why.
+        [Test]
+        public void BasicAttack_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Entity entity = gameObject.AddComponent<Entity>();
+            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.attackDamage);
+            Assert.AreEqual( 1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
         }
     }
 }
