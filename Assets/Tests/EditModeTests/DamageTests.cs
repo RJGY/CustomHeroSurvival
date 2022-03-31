@@ -90,7 +90,6 @@ namespace Tests
             Assert.AreEqual(900.0f, entity.currentHealth);
         }
 
-        // This is failing i dont know why.
         [Test]
         public void BasicAttack_ShouldDeal_ExpectedDamage()
         {
@@ -104,6 +103,45 @@ namespace Tests
 
             Assert.AreEqual(100.0f, entity.attackDamage);
             Assert.AreEqual( 1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void BasicAttackWithArmour_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Entity entity = gameObject.AddComponent<Entity>();
+            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.armor = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.armor);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
+
+        // ADD CREEP STUFF
+        [Test]
+        public void BasicAttackWithArmourAndArmourPen_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Entity entity = gameObject.AddComponent<Entity>();
+            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.armor = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.armor);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
             entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
             Assert.AreEqual(900.0f, entity.currentHealth);
         }

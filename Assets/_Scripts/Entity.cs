@@ -99,17 +99,17 @@ namespace CHS
                 case DamageTypes.PhysicalDamage:
                     effectiveArmorType = armor * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= (damageAmount - effectiveBlock) * (effectiveArmorType / (effectiveArmorType + armorCoefficient)) * (1 - damageReduction);
+                    currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 0) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
                     break;
                 case DamageTypes.MagicDamage:
                     effectiveArmorType = magicResist * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= damageAmount * (effectiveArmorType / (effectiveArmorType + armorCoefficient)) * (1 - damageReduction) - effectiveBlock;
+                    currentHealth -= Mathf.Max(damageAmount * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - damageReduction) - effectiveBlock, 0);
                     break;
                 case DamageTypes.ElementalDamage:
                     effectiveArmorType = magicResist * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= damageAmount * (effectiveArmorType / (effectiveArmorType + armorCoefficient)) * (1 - damageReduction) - effectiveBlock;
+                    currentHealth -= Mathf.Max(damageAmount * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - damageReduction) - effectiveBlock, 0);
                     break;
                 case DamageTypes.PureDamage:
                     currentHealth -= damageAmount;
