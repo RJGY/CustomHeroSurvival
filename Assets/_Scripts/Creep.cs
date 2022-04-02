@@ -4,26 +4,24 @@ using UnityEngine;
 
 namespace CHS
 {
-
-
-
     public class Creep : Entity
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        #region Variables
 
-        }
+        #endregion
 
-        // Update is called once per frame
-        void Update()
-        {
+        #region Monobehaviour
 
-        }
+        #endregion
+
+
+        #region Functions
 
         void SetStats(CreepScriptableObject creep)
         {
 
         }
+
+        #endregion
     }
 }
