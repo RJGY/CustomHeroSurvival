@@ -132,18 +132,19 @@ namespace Tests
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.armor = 100.0f;
+            stats.armorFlatPenetration = 100.0f;
             entity.SetStats(stats);
 
             Assert.AreEqual(100.0f, entity.armor);
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
             entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
-            Assert.AreEqual(900.0f, entity.currentHealth);
+            Assert.AreEqual(800.0f, entity.currentHealth);
         }
     }
 }
