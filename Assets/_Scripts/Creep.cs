@@ -23,6 +23,7 @@ namespace CHS
             physicalPower = creep.physicalPower;
             evasion = creep.evasion;
             level = creep.level;
+            block = creep.block;
             armorFlatPenetration = creep.armorFlatPenetration;
             magicFlatPenetration = creep.magicFlatPenetration;
             blockFlatPenetration = creep.blockFlatPenetration;

@@ -9,6 +9,7 @@ public class CreepScriptableObject : BaseEntityScriptableObject
     public float physicalPower;
     public float evasion;
     public int level;
+    public float block;
     public float armorFlatPenetration;
     public float magicFlatPenetration;
     public float blockFlatPenetration;
