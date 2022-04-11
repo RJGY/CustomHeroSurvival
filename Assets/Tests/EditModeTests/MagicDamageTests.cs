@@ -66,6 +66,103 @@ namespace Tests
             Assert.AreEqual(900.0f, entity.currentHealth);
         }
 
+        [Test]
+        public void MagicDamageWithMagicResistAndFlatPen_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.magicResist = 100.0f;
+            stats.magicFlatPenetration = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.magicResist);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            Assert.AreEqual(800.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void MagicDamageWithMagicResistAndPercentPen_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.magicResist = 200.0f;
+            stats.magicPercentPenetration = 0.5f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(200.0f, entity.magicResist);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void MagicDamageWithMagicResistAndBlock_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.magicResist = 100.0f;
+            stats.block = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.magicResist);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void MagicDamageWithBlock_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.block = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.block);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void MagicDamageWithBlock_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.block = 100.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(100.0f, entity.block);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            Assert.AreEqual(900.0f, entity.currentHealth);
+        }
         #endregion
     }
 }

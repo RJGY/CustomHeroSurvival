@@ -8,73 +8,7 @@ namespace Tests
 {
     public class PhysicalDamageTest
     {
-        #region SetStats
-        [Test]
-        public void Set_AttackDamage_ToEquivalentStats()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
-            stats.attackDamage = 100.0f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(100.0f, entity.attackDamage);
-        }
-
-        [Test]
-        public void Set_BaseAttackSpeed_ToEquivalentStats()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
-            stats.baseAttackSpeed = 110.0f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(110.0f, entity.baseAttackSpeed);
-        }
-
-        [Test]
-        public void Set_FinalAttackSpeed_ToEquivalentStats()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
-            stats.attackSpeed = 101.0f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(101.0f, entity.attackSpeed);
-        }
-
-        [Test]
-        public void Set_AttackRange_ToEquivalentStats()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
-            stats.attackRange = 100.1f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(100.1f, entity.attackRange);
-        }
-
-        [Test]
-        public void Set_IsMelee_ToEquivalentStats()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Entity entity = gameObject.AddComponent<Entity>();
-            BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
-            stats.isMelee = true;
-            entity.SetStats(stats);
-
-            Assert.IsTrue(entity.isMelee);
-        }
-
-        #endregion
+        
 
         #region PhysDamageTests
 
@@ -276,44 +210,6 @@ namespace Tests
 
         #endregion
 
-        #region MagicDamageTests
-
-        [Test]
-        public void MagicDamage_ShouldDeal_ExpectedDamage()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Creep entity = gameObject.AddComponent<Creep>();
-            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
-            stats.currentHealth = 1000.0f;
-            stats.attackDamage = 200.0f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(200.0f, entity.attackDamage);
-            Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
-            Assert.AreEqual(800.0f, entity.currentHealth);
-        }
-
-        [Test]
-        public void MagicDamageWithArmor_ShouldDeal_ExpectedDamage()
-        {
-            // Use the Assert class to test conditions
-            GameObject gameObject = new GameObject();
-            Creep entity = gameObject.AddComponent<Creep>();
-            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
-            stats.currentHealth = 1000.0f;
-            stats.attackDamage = 200.0f;
-            stats.armor = 100.0f;
-            entity.SetStats(stats);
-
-            Assert.AreEqual(100.0f, entity.armor);
-            Assert.AreEqual(200.0f, entity.attackDamage);
-            Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
-            Assert.AreEqual(800.0f, entity.currentHealth);
-        }
-
-        #endregion
+        
     }
 }

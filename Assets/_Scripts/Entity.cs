@@ -98,8 +98,6 @@ namespace CHS
             {
                 case DamageTypes.PhysicalDamage:
                     effectiveArmorType = armor * (1 - percentagePenetration) - flatPenetration;
-                    Debug.Log(effectiveArmorType);
-                    Debug.Log(flatPenetration);
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
                     currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 0) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
                     break;
