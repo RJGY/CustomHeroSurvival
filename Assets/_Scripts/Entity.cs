@@ -129,18 +129,23 @@ namespace CHS
             switch (damageType)
             {
                 case DamageTypes.PhysicalDamage:
+                    damageAmount *= 1.0f + physicalPower;
                     enemy.TakeDamage(DamageTypes.PhysicalDamage, damageAmount, armorFlatPenetration, armorPercentPenetration, blockFlatPenetration, blockPercentPenetration);
                     break;
                 case DamageTypes.MagicDamage:
+                    damageAmount *= 1.0f + magicPower;
                     enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration);
                     break;
                 case DamageTypes.ElementalDamage:
-                    enemy.TakeDamage(DamageTypes.ElementalDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration);
+                    damageAmount *= 1.0f + magicPower;
+                    // TODO: add elemental damage multipliers here.
+                    enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration);
                     break;
                 case DamageTypes.PureDamage:
                     enemy.TakeDamage(DamageTypes.PureDamage, damageAmount, 0, 0, 0, 0);
                     break;
                 default:
+                    Debug.LogError("Default should not occur. DamageType: " + damageType);
                     break;
             }
         }

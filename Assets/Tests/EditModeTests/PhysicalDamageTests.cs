@@ -208,8 +208,27 @@ namespace Tests
             Assert.AreEqual(900.0f, entity.currentHealth);
         }
 
+        [Test]
+        public void BasicAttackWithPhysicalPower_ShouldDeal_ExpectedDamage()
+        {
+            // Use the Assert class to test conditions
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.physicalPower = 1.0f;
+            entity.SetStats(stats);
+
+            Assert.AreEqual(1.0f, entity.physicalPower);
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity);
+            Assert.AreEqual(600.0f, entity.currentHealth);
+        }
+
         #endregion
 
-        
+
     }
 }
