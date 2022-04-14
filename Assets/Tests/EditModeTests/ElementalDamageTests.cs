@@ -85,7 +85,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithMagicResistAndPercentPen_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithMagicResistAndPercentPen_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -105,7 +105,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithMagicResistAndBlock_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithMagicResistAndBlock_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -125,7 +125,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithBlock_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithBlock_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -144,7 +144,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithBlockAndFlatPen_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithBlockAndFlatPen_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -164,7 +164,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithBlockAndPercentPen_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithBlockAndPercentPen_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -184,7 +184,7 @@ namespace Tests
         }
 
         [Test]
-        public void MagicDamageWithMagicPower_ShouldDeal_ExpectedDamage()
+        public void ElementalDamageWithMagicPower_ShouldDeal_ExpectedDamage()
         {
             // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
@@ -200,5 +200,8 @@ namespace Tests
             entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
             Assert.AreEqual(600.0f, entity.currentHealth);
         }
+
+        // Add elemental modifiers here
+
     }
 }
