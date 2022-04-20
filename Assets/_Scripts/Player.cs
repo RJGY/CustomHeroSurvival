@@ -41,7 +41,7 @@ namespace CHS
 
         private void GetComponentsOnStart()
         {
-
+            mouse = GetComponent<PlayerMouse>();
         }
 
         #endregion

@@ -39,6 +39,7 @@ namespace CHS
         // Start is called before the first frame update
         private new void Start()
         {
+            AssignObjects();
             SubscribeEvents();
             base.Start();
         }
@@ -57,6 +58,11 @@ namespace CHS
         #endregion
 
         #region Functions
+
+        private void AssignObjects()
+        {
+            player = GetComponent<Player>();
+        }
 
         private void SubscribeEvents()
         {
