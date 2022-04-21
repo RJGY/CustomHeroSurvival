@@ -33,7 +33,11 @@ namespace CHS
         // Update is called once per frame
         void Update()
         {
-
+            if (Input.GetMouseButtonDown(1))
+            {
+                MoveToPoint();
+                print("IVE DONE SOMETHINGS");
+            }
         }
 
         #endregion

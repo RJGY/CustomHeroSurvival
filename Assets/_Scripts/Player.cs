@@ -39,9 +39,14 @@ namespace CHS
 
         #region Functions
 
-        private void GetComponentsOnStart()
+        private void GetComponentsOnAwake()
         {
             mouse = GetComponent<PlayerMouse>();
+        }
+
+        private void Awake()
+        {
+            GetComponentsOnAwake();
         }
 
         #endregion

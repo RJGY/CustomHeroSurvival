@@ -10,27 +10,27 @@ namespace CHS
     {
         #region Objects
         // Objects
-        private Player player;
+        [SerializeField] private Player player;
 
         #endregion
 
         #region Variables
 
         // Stats
-        private int lives;
-        private float luck;
-        private float pvpBonus;
-        private float healthPerLevel;
-        private float healthRegenPerLevel;
-        private float manaPerLevel;
-        private float manaRegenPerLevel;
-        private float damagePerLevel;
-        private float armourPerLevel;
-        private float magicResistPerLevel;
-        private float attackSpeedPerLevel;
-        private float magicPowerPerLevel;
-        private Ability heroAbility;
-        private float xp;
+        [SerializeField] private int lives;
+        [SerializeField] private float luck;
+        [SerializeField] private float pvpBonus;
+        [SerializeField] private float healthPerLevel;
+        [SerializeField] private float healthRegenPerLevel;
+        [SerializeField] private float manaPerLevel;
+        [SerializeField] private float manaRegenPerLevel;
+        [SerializeField] private float damagePerLevel;
+        [SerializeField] private float armourPerLevel;
+        [SerializeField] private float magicResistPerLevel;
+        [SerializeField] private float attackSpeedPerLevel;
+        [SerializeField] private float magicPowerPerLevel;
+        [SerializeField] private Ability heroAbility;
+        [SerializeField] private float xp;
 
         #endregion
 
@@ -39,9 +39,14 @@ namespace CHS
         // Start is called before the first frame update
         private new void Start()
         {
-            AssignObjects();
+            
             SubscribeEvents();
             base.Start();
+        }
+
+        private void Awake()
+        {
+            AssignObjects();
         }
 
         // Update is called once per frame
