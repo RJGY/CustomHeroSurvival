@@ -15,7 +15,6 @@ namespace Tests
         [Test]
         public void TakeDamage_ShouldTake_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -32,7 +31,6 @@ namespace Tests
         [Test]
         public void BasicAttack_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -49,7 +47,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithMagicResist_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -68,7 +65,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithArmour_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -87,7 +83,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithArmourAndArmourFlatPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -107,7 +102,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithArmorAndArmorPercentPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -128,7 +122,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithBlock_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -148,7 +141,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithBlockAndArmour_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -169,7 +161,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithBlockAndBlockFlatPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -190,7 +181,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithBlockAndBlockPercentPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -211,7 +201,6 @@ namespace Tests
         [Test]
         public void BasicAttackWithPhysicalPower_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();

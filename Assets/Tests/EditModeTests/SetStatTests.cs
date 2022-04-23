@@ -13,7 +13,6 @@ namespace Tests
         [Test]
         public void Set_AttackDamage_ToEquivalentStats()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -26,7 +25,6 @@ namespace Tests
         [Test]
         public void Set_BaseAttackSpeed_ToEquivalentStats()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -39,7 +37,6 @@ namespace Tests
         [Test]
         public void Set_FinalAttackSpeed_ToEquivalentStats()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -52,7 +49,6 @@ namespace Tests
         [Test]
         public void Set_AttackRange_ToEquivalentStats()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
@@ -65,7 +61,6 @@ namespace Tests
         [Test]
         public void Set_IsMelee_ToEquivalentStats()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();

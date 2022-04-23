@@ -14,7 +14,6 @@ namespace Tests
         [Test]
         public void MagicDamage_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -31,7 +30,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithArmor_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -50,7 +48,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithMagicResist_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -69,7 +66,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithMagicResistAndFlatPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -89,7 +85,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithMagicResistAndPercentPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -109,7 +104,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithMagicResistAndBlock_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -129,7 +123,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithBlock_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -148,7 +141,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithBlockAndFlatPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -168,7 +160,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithBlockAndPercentPen_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
@@ -188,7 +179,6 @@ namespace Tests
         [Test]
         public void MagicDamageWithMagicPower_ShouldDeal_ExpectedDamage()
         {
-            // Use the Assert class to test conditions
             GameObject gameObject = new GameObject();
             Creep entity = gameObject.AddComponent<Creep>();
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
