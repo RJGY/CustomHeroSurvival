@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 817724349}
   - component: {fileID: 817724348}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,6 +394,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e5a463dba615e429358720db6cf733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  lives: 0
+  luck: 0
+  pvpBonus: 0
+  healthPerLevel: 0
+  healthRegenPerLevel: 0
+  manaPerLevel: 0
+  manaRegenPerLevel: 0
+  damagePerLevel: 0
+  armourPerLevel: 0
+  magicResistPerLevel: 0
+  attackSpeedPerLevel: 0
+  magicPowerPerLevel: 0
+  heroAbility: {fileID: 0}
+  xp: 0
 --- !u!136 &817724352
 CapsuleCollider:
   m_ObjectHideFlags: 0

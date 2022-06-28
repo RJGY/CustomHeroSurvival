@@ -1,5 +1,2 @@
 # CustomHeroSurvival 
-
-
-TODO:
-need projectiles - make it deal dmg thru the player
+Remake of the game CustomHeroSurvival by Blokkade in Warcraft 3 by RJGY.
