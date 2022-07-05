@@ -29,7 +29,7 @@ namespace CHS
         public float attackDamage { get; protected set; }
         public float baseAttackSpeed { get; protected set; }
         public float attackSpeed { get; protected set; }
-        // TODO: Move these to a library somwhere
+        // TODO: Move these 3 to a library somwhere
         private float armorCoefficient = 100;
         private float magicResistCoefficient = 100;
         private float attackSpeedCap = 2.50f;
@@ -58,9 +58,14 @@ namespace CHS
 
         #region Monobehaviour
 
+        protected void Awake() 
+        {
+            AssignObjects();
+        }
+
         protected void Start()
         {
-            GetComponentsOnStart();
+            
         }
 
         protected void Update()
@@ -177,7 +182,7 @@ namespace CHS
             }
         }
 
-        private void GetComponentsOnStart()
+        private void AssignObjects()
         {
             agent = GetComponent<NavMeshAgent>();
         }
@@ -206,7 +211,7 @@ namespace CHS
             Destroy(gameObject);
         }
 
-        public void SetStats(BaseEntityScriptableObject baseEntity)
+        public void AssignStats(BaseEntityScriptableObject baseEntity)
         {
             armor = baseEntity.armor;
             attackDamage = baseEntity.attackDamage;

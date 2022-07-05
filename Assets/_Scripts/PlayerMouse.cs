@@ -22,7 +22,6 @@ namespace CHS
         [SerializeField] private LayerMask playerLayer;
         #endregion
 
-
         #region Monobehaviour
         // Start is called before the first frame update
         void Start()
@@ -35,14 +34,25 @@ namespace CHS
         {
             if (Input.GetMouseButtonDown(1))
             {
-                MoveToPoint();
-                print("IVE DONE SOMETHINGS");
+                RightMouseClickLogic();
+            } else if (Input.GetMouseButtonDown(0)) {
+                LeftMouseClickLogic();
             }
         }
 
         #endregion
 
         #region Functions
+
+        private void RightMouseClickLogic()
+        {
+
+        }
+
+        private void LeftMouseClickLogic()
+        {
+
+        }
 
         void MoveToPoint()
         {
@@ -51,6 +61,7 @@ namespace CHS
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
             {
+                print("invoked");
                 PlayerMoved?.Invoke(hit.point);
             }
         }

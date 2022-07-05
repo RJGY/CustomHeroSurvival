@@ -17,7 +17,7 @@ namespace Tests
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
             stats.attackDamage = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.attackDamage);
         }
@@ -29,7 +29,7 @@ namespace Tests
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
             stats.baseAttackSpeed = 110.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(110.0f, entity.baseAttackSpeed);
         }
@@ -41,7 +41,7 @@ namespace Tests
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
             stats.attackSpeed = 101.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(101.0f, entity.attackSpeed);
         }
@@ -53,7 +53,7 @@ namespace Tests
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
             stats.attackRange = 100.1f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.1f, entity.attackRange);
         }
@@ -65,7 +65,7 @@ namespace Tests
             Entity entity = gameObject.AddComponent<Entity>();
             BaseEntityScriptableObject stats = ScriptableObject.CreateInstance<BaseEntityScriptableObject>();
             stats.isMelee = true;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.IsTrue(entity.isMelee);
         }

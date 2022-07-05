@@ -17,7 +17,7 @@ namespace CHS
 
         #region Functions
 
-        public void SetStats(CreepScriptableObject creep)
+        public void AssignStats(CreepScriptableObject creep)
         {
             magicPower = creep.magicPower;
             physicalPower = creep.physicalPower;
@@ -30,7 +30,7 @@ namespace CHS
             armorPercentPenetration = creep.armorPercentPenetration;
             magicPercentPenetration = creep.magicPercentPenetration;
             blockPercentPenetration = creep.blockPercentPenetration;
-            base.SetStats(creep);
+            base.AssignStats(creep);
         }
 
         #endregion

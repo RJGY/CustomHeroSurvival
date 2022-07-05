@@ -17,7 +17,7 @@ namespace Tests
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
@@ -34,7 +34,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.armor = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(100.0f, entity.armor);
@@ -52,7 +52,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.magicResist = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(100.0f, entity.magicResist);
@@ -70,7 +70,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.block = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(100.0f, entity.block);
@@ -91,7 +91,7 @@ namespace Tests
             stats.block = 100.0f;
             stats.armor = 100.0f;
             stats.magicResist = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(100.0f, entity.block);
@@ -112,7 +112,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.physicalPower = 1.0f;
             stats.magicPower = 1.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);

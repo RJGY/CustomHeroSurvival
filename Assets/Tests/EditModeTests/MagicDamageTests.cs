@@ -19,7 +19,7 @@ namespace Tests
             CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
@@ -36,7 +36,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.armor = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.armor);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -54,7 +54,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.magicResist = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -73,7 +73,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.magicResist = 100.0f;
             stats.magicFlatPenetration = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -92,7 +92,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.magicResist = 200.0f;
             stats.magicPercentPenetration = 0.5f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -111,7 +111,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.magicResist = 100.0f;
             stats.block = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -129,7 +129,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.block = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.block);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -148,7 +148,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.block = 100.0f;
             stats.blockFlatPenetration = 100.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.block);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -167,7 +167,7 @@ namespace Tests
             stats.attackDamage = 200.0f;
             stats.block = 100.0f;
             stats.blockPercentPenetration = 0.5f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(100.0f, entity.block);
             Assert.AreEqual(200.0f, entity.attackDamage);
@@ -185,7 +185,7 @@ namespace Tests
             stats.currentHealth = 1000.0f;
             stats.attackDamage = 200.0f;
             stats.magicPower = 1.0f;
-            entity.SetStats(stats);
+            entity.AssignStats(stats);
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);

@@ -34,7 +34,6 @@ namespace CHS
 
         #endregion
 
-
         #region Monobehaviour
         // Start is called before the first frame update
         private new void Start()
@@ -44,9 +43,10 @@ namespace CHS
             base.Start();
         }
 
-        private void Awake()
+        private new void Awake()
         {
             AssignObjects();
+            base.Awake();
         }
 
         // Update is called once per frame
@@ -64,6 +64,11 @@ namespace CHS
 
         #region Functions
 
+        private new void Move(Vector3 destination) 
+        {
+            base.Move(destination);
+        }
+
         private void AssignObjects()
         {
             player = GetComponent<Player>();
@@ -77,6 +82,11 @@ namespace CHS
         private void UnsubscribeEvents()
         {
             player.mouse.PlayerMoved -= Move;
+        }
+
+        private void AssignStats()
+        {
+
         }
 
         #endregion
