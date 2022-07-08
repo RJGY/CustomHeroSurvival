@@ -15,10 +15,10 @@ namespace CHS
         public Entity currentEnemy { get; protected set; }
         public Collider body { get; protected set; }
         public Timer attackCooldown { get; protected set; }
+
         #endregion
 
         #region Variables
-
         // Stats
         public float currentHealth { get; protected set; }
         public float maxHealth { get; protected set; }
@@ -61,17 +61,6 @@ namespace CHS
         protected void Awake() 
         {
             AssignObjects();
-        }
-
-        protected void Start()
-        {
-            
-        }
-
-        protected void Update()
-        {
-
-
         }
 
         #endregion

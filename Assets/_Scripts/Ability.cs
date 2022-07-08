@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CHS
+public class Ability : MonoBehaviour
 {
     
 }
