@@ -32,26 +32,29 @@ namespace CHS
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                RightMouseClickLogic();
-            } else if (Input.GetMouseButtonDown(0)) {
-                LeftMouseClickLogic();
-            }
+            
         }
 
         #endregion
 
         #region Functions
 
+        private void OnMouseClick() {
+            if (Input.GetMouseButtonDown(1)) {
+                RightMouseClickLogic();
+            } else if (Input.GetMouseButtonDown(0)) {
+                LeftMouseClickLogic();
+            }
+        }
+
         private void RightMouseClickLogic()
         {
-
+            
         }
 
         private void LeftMouseClickLogic()
         {
-
+            SelectEntity();
         }
 
         void MoveToPoint()
@@ -75,6 +78,11 @@ namespace CHS
             {
                 EnemyAttacked?.Invoke(hit.collider.gameObject.GetComponent<Entity>());
             }
+        }
+
+        void SelectEntity() {
+            // Not yet implemented
+            throw NotYetImplementedException;
         }
 
         #endregion
