@@ -29,9 +29,7 @@ namespace CHS
         public float attackDamage { get; protected set; }
         public float baseAttackSpeed { get; protected set; }
         public float attackSpeed { get; protected set; }
-        // TODO: Move these 3 to a library somwhere
         private float armorCoefficient = 100;
-        private float magicResistCoefficient = 100;
         private float attackSpeedCap = 2.50f;
         public float armor { get; protected set; }
         public float magicResist { get; protected set; }
@@ -52,6 +50,7 @@ namespace CHS
         public float blockFlatPenetration { get; protected set; }
         public float damageReduction { get; protected set; }
         public Ability[] abilities { get; protected set; }
+        public Buff[] buffs { get; protected set; }
         public bool canAttack { get; protected set; }
         public bool isVisible { get; protected set; }
         #endregion
@@ -61,6 +60,14 @@ namespace CHS
         protected void Awake() 
         {
             AssignObjects();
+        }
+
+        protected void Start() {
+
+        }
+
+        protected void Update() {
+            AttackCooldown(Time.deltaTime);
         }
 
         #endregion
@@ -164,14 +171,17 @@ namespace CHS
                 }
                 else
                 {
-                    // Play Attack Animation
-                    DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+                    // Play Ranged Attack Animation
                     ToggleAttack();
                 }
             }
         }
 
-        private void AssignObjects()
+        protected void ManageBuffs(float deltaTime) {
+            
+        }
+
+        protected void AssignObjects()
         {
             agent = GetComponent<NavMeshAgent>();
         }

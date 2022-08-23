@@ -32,7 +32,7 @@ namespace CHS
         // Update is called once per frame
         void Update()
         {
-            
+            OnMouseClick();
         }
 
         #endregion
@@ -49,7 +49,13 @@ namespace CHS
 
         private void RightMouseClickLogic()
         {
-            
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer)) {
+                print("invoked");
+                PlayerMoved?.Invoke(hit.point);
+            }
         }
 
         private void LeftMouseClickLogic()
@@ -81,8 +87,7 @@ namespace CHS
         }
 
         void SelectEntity() {
-            // Not yet implemented
-            throw NotYetImplementedException;
+            throw new NotYetImplementedException("PlayerMouse.SelectEntity()");
         }
 
         #endregion
