@@ -95,22 +95,26 @@ namespace CHS
         {
             float effectiveBlock;
             float effectiveArmorType;
+            // TODO: Add in damage reduction
+            // TODO: Add in evasion
+            // TODO: change magic damage calculations to be same as physical damage calculations 
+            // TODO: minimum damage is always 1 now
             switch (damageType)
             {
                 case DamageTypes.PhysicalDamage:
                     effectiveArmorType = armor * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 0) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
+                    currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 1) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
                     break;
                 case DamageTypes.MagicDamage:
                     effectiveArmorType = magicResist * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= Mathf.Max(damageAmount * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - damageReduction) - effectiveBlock, 0);
+                    currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 1) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
                     break;
                 case DamageTypes.ElementalDamage:
                     effectiveArmorType = magicResist * (1 - percentagePenetration) - flatPenetration;
                     effectiveBlock = block * (1 - blockPercentPenetration) - blockFlatPenetration;
-                    currentHealth -= Mathf.Max(damageAmount * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - damageReduction) - effectiveBlock, 0);
+                    currentHealth -= Mathf.Max(damageAmount - effectiveBlock, 1) * (1 - (effectiveArmorType / (effectiveArmorType + armorCoefficient))) * (1 - Mathf.Min(damageReduction, 1));
                     break;
                 case DamageTypes.PureDamage:
                     currentHealth -= damageAmount;
@@ -153,6 +157,7 @@ namespace CHS
 
         protected void Attack(Entity enemy)
         {
+            // TODO: Add in miss chance
             currentEnemy = enemy;
 
             if (Vector3.Distance(transform.position, enemy.transform.position) > attackRange)

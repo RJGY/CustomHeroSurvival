@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Btkalman.Util;
 public class Ability : MonoBehaviour
 {
     private float manaCost;
@@ -13,6 +13,6 @@ public class Ability : MonoBehaviour
     }
 
     protected void UpdateCooldown(float deltaTime) {
-
+        
     }
 }
