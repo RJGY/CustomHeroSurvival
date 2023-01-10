@@ -31,7 +31,7 @@ namespace CHS
 
         void Start()
         {
-            damageDealer.DealDamage(damageType, damage, enemy);
+            damageDealer.DealDamage(damageType, damage, enemy, false);
             timer = new Timer(period);
         }
 

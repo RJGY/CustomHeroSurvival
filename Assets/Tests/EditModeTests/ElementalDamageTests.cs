@@ -21,7 +21,7 @@ namespace Tests
 
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity, true);
             Assert.AreEqual(800.0f, entity.currentHealth);
         }
 
@@ -39,7 +39,7 @@ namespace Tests
             Assert.AreEqual(100.0f, entity.armor);
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity, true);
             Assert.AreEqual(800.0f, entity.currentHealth);
         }
 
@@ -57,7 +57,7 @@ namespace Tests
             Assert.AreEqual(100.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity, true);
             Assert.AreEqual(900.0f, entity.currentHealth);
         }
 
@@ -76,7 +76,7 @@ namespace Tests
             Assert.AreEqual(100.0f, entity.magicResist);
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
-            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
+            entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity, true);
             Assert.AreEqual(800.0f, entity.currentHealth);
         }
 
@@ -115,7 +115,7 @@ namespace Tests
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
             entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
-            Assert.AreEqual(1000.0f, entity.currentHealth);
+            Assert.AreEqual(950.0f, entity.currentHealth);
         }
 
         [Test]
@@ -189,6 +189,23 @@ namespace Tests
             Assert.AreEqual(1000.0f, entity.currentHealth);
             entity.DealDamage(DamageTypes.MagicDamage, entity.attackDamage, entity);
             Assert.AreEqual(600.0f, entity.currentHealth);
+        }
+
+        [Test]
+        public void ElementalDamageWithBlock_ShouldDeal_MinimumDamage()
+        {
+            GameObject gameObject = new GameObject();
+            Creep entity = gameObject.AddComponent<Creep>();
+            CreepScriptableObject stats = ScriptableObject.CreateInstance<CreepScriptableObject>();
+            stats.currentHealth = 1000.0f;
+            stats.attackDamage = 200.0f;
+            stats.block = 10000.0f;
+            entity.AssignStats(stats);
+
+            Assert.AreEqual(200.0f, entity.attackDamage);
+            Assert.AreEqual(1000.0f, entity.currentHealth);
+            entity.DealDamage(DamageTypes.ElementalDamage, entity.attackDamage, entity);
+            Assert.AreEqual(999.0f, entity.currentHealth);
         }
 
         // Add elemental modifiers here

@@ -91,14 +91,16 @@ namespace CHS
             }
         }
 
-        public void TakeDamage(DamageTypes damageType, float damageAmount, float flatPenetration, float percentagePenetration, float blockFlatPenetration, float blockPercentPenetration)
+        public void TakeDamage(DamageTypes damageType, float damageAmount, float flatPenetration, float percentagePenetration, float blockFlatPenetration, float blockPercentPenetration, bool isAutoAttack)
         {
             float effectiveBlock;
             float effectiveArmorType;
-            // TODO: Add in damage reduction
-            // TODO: Add in evasion
-            // TODO: change magic damage calculations to be same as physical damage calculations 
-            // TODO: minimum damage is always 1 now
+            if (isAutoAttack) {
+                if (evasion >= Random.Range(0.0f, 100.0f)) {
+                    return;
+                }
+            }
+
             switch (damageType)
             {
                 case DamageTypes.PhysicalDamage:
@@ -129,25 +131,35 @@ namespace CHS
             }
         }
 
-        public void DealDamage(DamageTypes damageType, float damageAmount, Entity enemy)
+        public void DealDamage(DamageTypes damageType, float damageAmount, Entity enemy) {
+            DealDamage(damageType, damageAmount, enemy, false);
+        }
+
+        public void DealDamage(DamageTypes damageType, float damageAmount, Entity enemy, bool isAutoAttack)
         {
+            if (isAutoAttack) {
+                if (missChance >= Random.Range(0.0f, 100.0f)) {
+                    return;
+                }
+            }
+
             switch (damageType)
             {
                 case DamageTypes.PhysicalDamage:
                     damageAmount *= 1.0f + physicalPower;
-                    enemy.TakeDamage(DamageTypes.PhysicalDamage, damageAmount, armorFlatPenetration, armorPercentPenetration, blockFlatPenetration, blockPercentPenetration);
+                    enemy.TakeDamage(DamageTypes.PhysicalDamage, damageAmount, armorFlatPenetration, armorPercentPenetration, blockFlatPenetration, blockPercentPenetration, isAutoAttack);
                     break;
                 case DamageTypes.MagicDamage:
                     damageAmount *= 1.0f + magicPower;
-                    enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration);
+                    enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration, isAutoAttack);
                     break;
                 case DamageTypes.ElementalDamage:
                     damageAmount *= 1.0f + magicPower;
                     // TODO: add elemental damage multipliers here.
-                    enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration);
+                    enemy.TakeDamage(DamageTypes.MagicDamage, damageAmount, magicFlatPenetration, magicPercentPenetration, blockFlatPenetration, blockPercentPenetration, isAutoAttack);
                     break;
                 case DamageTypes.PureDamage:
-                    enemy.TakeDamage(DamageTypes.PureDamage, damageAmount, 0, 0, 0, 0);
+                    enemy.TakeDamage(DamageTypes.PureDamage, damageAmount, 0, 0, 0, 0, isAutoAttack);
                     break;
                 default:
                     Debug.LogError("Default should not occur. DamageType: " + damageType);
@@ -171,7 +183,7 @@ namespace CHS
                 if (isMelee)
                 {
                     // Play Attack Animation
-                    DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy);
+                    DealDamage(DamageTypes.PhysicalDamage, attackDamage, enemy, true);
                     ToggleAttack();
                 }
                 else
