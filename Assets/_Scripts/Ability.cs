@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Btkalman.Util;
-public class Ability : MonoBehaviour
-{
-    private float manaCost;
-    private bool canCast;
-    private Timer cooldown;
 
-    protected void Update() {
+namespace CHS {
+    public class Ability : MonoBehaviour {
+        private float manaCost;
+        private bool canCast;
+        private Timer cooldown;
 
-    }
+        protected void Update() {
 
-    protected void UpdateCooldown(float deltaTime) {
-        
+        }
+
+        protected void UpdateCooldown(float deltaTime) {
+            
+        }
     }
 }
+

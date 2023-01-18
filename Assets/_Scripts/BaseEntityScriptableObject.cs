@@ -19,4 +19,12 @@ public class BaseEntityScriptableObject : ScriptableObject
     public float moveSpeed;
     public bool isMelee;
     public float attackRange;
+    public float block;
+    public float armorPercentPenetration;
+    public float armorFlatPenetration;
+    public float magicPercentPenetration;
+    public float magicFlatPenetration;
+    public float blockPercentPenetration;
+    public float blockFlatPenetration;
+    
 }

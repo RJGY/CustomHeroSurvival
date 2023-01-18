@@ -7,29 +7,30 @@ namespace CHS
     public class Creep : Entity
     {
         #region Variables
-
+        private Hero assignedHero;
         #endregion
 
         #region Monobehaviour
-
+        private new void Update() {
+            base.Update();
+            if (assignedHero != null)
+            {
+                SeekHero();
+            }
+        }
         #endregion
 
 
         #region Functions
+        private void SeekHero()
+        {
+            Attack(assignedHero);
+        }
+
 
         public void AssignStats(CreepScriptableObject creep)
         {
-            magicPower = creep.magicPower;
-            physicalPower = creep.physicalPower;
-            evasion = creep.evasion;
             level = creep.level;
-            block = creep.block;
-            armorFlatPenetration = creep.armorFlatPenetration;
-            magicFlatPenetration = creep.magicFlatPenetration;
-            blockFlatPenetration = creep.blockFlatPenetration;
-            armorPercentPenetration = creep.armorPercentPenetration;
-            magicPercentPenetration = creep.magicPercentPenetration;
-            blockPercentPenetration = creep.blockPercentPenetration;
             base.AssignStats(creep);
         }
 

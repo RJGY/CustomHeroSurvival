@@ -169,7 +169,6 @@ namespace CHS
 
         protected void Attack(Entity enemy)
         {
-            // TODO: Add in miss chance
             currentEnemy = enemy;
 
             if (Vector3.Distance(transform.position, enemy.transform.position) > attackRange)
@@ -241,6 +240,13 @@ namespace CHS
             magicResist = baseEntity.magicResist;
             moveSpeed = baseEntity.moveSpeed;
             isMelee = baseEntity.isMelee;
+            block = baseEntity.block;
+            blockFlatPenetration = baseEntity.blockFlatPenetration;
+            blockPercentPenetration = baseEntity.blockPercentPenetration;
+            armorFlatPenetration = baseEntity.armorFlatPenetration;
+            armorPercentPenetration = baseEntity.armorPercentPenetration;
+            magicFlatPenetration = baseEntity.magicFlatPenetration;
+            magicPercentPenetration = baseEntity.magicPercentPenetration;
         }
 
         #endregion
