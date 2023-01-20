@@ -248,6 +248,7 @@ namespace Tests
             entity.AssignStats(stats);
 
             Assert.AreEqual(1.0f, entity.physicalPower);
+            Assert.AreEqual(100.0f, entity.evasion);
             Assert.AreEqual(200.0f, entity.attackDamage);
             Assert.AreEqual(1000.0f, entity.currentHealth);
             entity.DealDamage(DamageTypes.PhysicalDamage, entity.attackDamage, entity, true);

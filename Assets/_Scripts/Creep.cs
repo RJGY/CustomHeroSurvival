@@ -31,6 +31,9 @@ namespace CHS
         public void AssignStats(CreepScriptableObject creep)
         {
             level = creep.level;
+            physicalPower = creep.physicalPower;
+            magicPower = creep.magicPower;
+            evasion = creep.evasion;
             base.AssignStats(creep);
         }
 
