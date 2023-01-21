@@ -4,5 +4,7 @@ using UnityEngine;
 
 namespace CHS
 {
-    
+    public class Passive : MonoBehaviour {
+        
+    }
 }

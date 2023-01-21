@@ -200,6 +200,7 @@ namespace CHS
         protected void AssignObjects()
         {
             agent = GetComponent<NavMeshAgent>();
+            attackCooldown = new Timer(attackSpeed);
         }
 
         protected void Move(Vector3 destination)

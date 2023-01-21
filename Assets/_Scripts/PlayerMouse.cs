@@ -53,7 +53,6 @@ namespace CHS
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer)) {
-                print("invoked");
                 PlayerMoved?.Invoke(hit.point);
             }
         }

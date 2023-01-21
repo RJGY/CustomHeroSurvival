@@ -29,7 +29,7 @@ namespace CHS
         [SerializeField] private float magicResistPerLevel;
         [SerializeField] private float attackSpeedPerLevel;
         [SerializeField] private float magicPowerPerLevel;
-        [SerializeField] private Ability heroAbility;
+        [SerializeField] private Passive heroPassive;
         [SerializeField] private float xp;
 
         #endregion
